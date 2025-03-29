@@ -25,14 +25,16 @@
         }
         #tree {
             width: auto;
-            height: calc(100vh - 80px); /* Makes the tree span from top to just above buttons */
+            height: 100vh; /* Extends tree to fully cover from top to near buttons */
             max-width: 90vw;
             object-fit: contain;
         }
         .nav-container {
             display: flex;
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 50px; /* Moves buttons up slightly */
+            position: absolute;
+            bottom: 5%; /* Adjust this to align with roots */
         }
         .nav-button {
             padding: 10px 20px;
