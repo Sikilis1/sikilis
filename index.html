@@ -6,56 +6,53 @@
     <title>Pixel Yggdrasil Homepage</title>
     <style>
         body {
-            background-color: #f4e1c6;
+            background-color: black;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             position: relative;
         }
-        canvas {
-            image-rendering: pixelated;
-            position: absolute;
-            top: 10%;
-            z-index: -1;
+        #treeContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            width: 100%;
+        }
+        #tree {
+            width: auto;
+            height: calc(100vh - 80px); /* Makes the tree span from top to just above buttons */
+            max-width: 90vw;
+            object-fit: contain;
         }
         .nav-container {
             display: flex;
             gap: 20px;
-            margin-top: 400px;
+            margin-bottom: 20px;
         }
         .nav-button {
             padding: 10px 20px;
             background: black;
             color: white;
-            border: none;
+            border: 2px solid white;
             font-size: 20px;
             cursor: pointer;
             font-family: monospace;
-            position: relative;
+            text-transform: uppercase;
         }
         .nav-button:hover {
             background: gray;
         }
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .sparkle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: yellow;
-            border-radius: 50%;
-            animation: sparkle 1.5s infinite alternate;
-        }
     </style>
 </head>
 <body>
-    <canvas id="treeCanvas" width="600" height="600"></canvas>
+    <div id="treeContainer">
+        <img id="tree" src="big_pixel_tree.png" alt="Pixel Yggdrasil">
+    </div>
     <div class="nav-container">
         <button class="nav-button">ABOUT</button>
         <button class="nav-button">BLOG</button>
@@ -63,35 +60,5 @@
         <button class="nav-button">EMPTY</button>
         <button class="nav-button">EMPTY</button>
     </div>
-    <script>
-        const canvas = document.getElementById("treeCanvas");
-        const ctx = canvas.getContext("2d");
-        const img = new Image();
-        img.src = "big_pixel_tree.png"; // Replace with your pixel art tree
-
-        let angle = 0;
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.save();
-            ctx.translate(canvas.width / 2, canvas.height / 2);
-            ctx.rotate(Math.sin(angle) * 0.05);
-            ctx.drawImage(img, -img.width / 2, -img.height / 2);
-            ctx.restore();
-            angle += 0.02;
-            requestAnimationFrame(animate);
-        }
-        img.onload = animate;
-
-        // Sparkles
-        function createSparkle() {
-            const sparkle = document.createElement("div");
-            sparkle.classList.add("sparkle");
-            sparkle.style.left = `${Math.random() * 100}%`;
-            sparkle.style.top = `${Math.random() * 30}%`;
-            document.body.appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 2000);
-        }
-        setInterval(createSparkle, 500);
-    </script>
 </body>
 </html>
