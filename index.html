@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-end;
-            height: 90vh;
+            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             position: relative;
@@ -25,17 +25,14 @@
         }
         #tree {
             width: auto;
-             /* Extends tree to fully cover from top to near buttons */
+            height: calc(100vh - 80px); /* Makes the tree span from top to just above buttons */
             max-width: 90vw;
             object-fit: contain;
-            /* Ensure tree background is fully black */
         }
         .nav-container {
             display: flex;
             gap: 20px;
-            margin-bottom: 50px; /* Moves buttons up slightly */
-            position: absolute;
-            bottom: 5%; /* Adjust this to align with roots */
+            margin-bottom: 20px;
         }
         .nav-button {
             padding: 10px 20px;
@@ -49,25 +46,6 @@
         }
         .nav-button:hover {
             background: gray;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            position: absolute;
-            bottom: 5%;
-            gap: 20px;
-        }
-        .nav-button:nth-child(3) { /* Projects button */
-            position: relative;
-            top: 20px; /* Moves it slightly lower */
-        }
-        .nav-button:nth-child(1),
-        .nav-button:nth-child(2),
-        .nav-button:nth-child(4),
-        .nav-button:nth-child(5) {
-            position: relative;
-            top: 10px; /* Moves them slightly higher to align with roots */
         }
     </style>
 </head>
