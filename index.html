@@ -18,7 +18,7 @@
         }
         canvas {
             image-rendering: pixelated;
-            width: 700px; /* Increased size */
+            width: 900px; /* Increased size */
             height: auto;
         }
         .nav-container {
@@ -55,7 +55,7 @@
         const canvas = document.getElementById("treeCanvas");
         const ctx = canvas.getContext("2d");
         const img = new Image();
-        img.src = "big_pixel_tree.png"; // Ensure this path is correct
+        img.src = "big_pixeltree.png"; // Ensure this path is correct
 
         img.onload = function() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
